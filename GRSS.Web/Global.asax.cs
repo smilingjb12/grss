@@ -10,6 +10,7 @@ namespace GRSS.Web
     {
         protected void Application_Start()
         {
+            //TODO: stab
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
