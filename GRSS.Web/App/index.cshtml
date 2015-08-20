@@ -1,0 +1,28 @@
+﻿@using Newtonsoft.Json
+@model GRSS.Web.Models.AppConstants
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>GRSS</title>
+    <link rel="shortcut icon" href="~/favicon.ico">
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/bundles/app/vendor/css")
+    @Styles.Render("~/bundles/app/user/css")
+</head>
+<body ng-app="app" ng-cloak>
+<div ng-include="'/App/views/templates/navbar.cshtml'"></div>
+<div ui-view></div>
+<script>
+    (function(window) {
+        window.serverConstants = @Html.Raw(JsonConvert.SerializeObject(Model));
+    })(window);
+</script>
+@Scripts.Render("~/bundles/app/vendor/js")
+@Scripts.Render("~/bundles/app/user/js")
+</body>
+</html>

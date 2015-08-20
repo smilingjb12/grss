@@ -1,0 +1,20 @@
+﻿[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/* make room for the site navbar */
+body {
+    padding-top: 70px;
+}
+
+.btn-login {
+    margin-left: auto;
+    margin-right: auto;
+    width: 140px;
+    display: block;
+    margin-top: 30px;
+}
+
+a {
+    cursor: pointer;
+}
