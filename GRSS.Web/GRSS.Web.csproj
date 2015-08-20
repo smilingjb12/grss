@@ -243,12 +243,16 @@
     <Content Include="App\controllers\companyCtrl.js" />
     <Content Include="App\controllers\dashboardCtrl.js" />
     <Content Include="App\controllers\sideBarCtrl.js" />
+    <Content Include="App\controllers\supplierEditCtrl.js" />
     <Content Include="App\controllers\surveysCtrl.js" />
+    <Content Include="App\directives\imageUpload.js" />
     <Content Include="App\routeConfig.js" />
     <Content Include="App\views\company.dashboard.cshtml" />
     <Content Include="App\views\company.surveys.cshtml" />
     <Content Include="App\views\company.cshtml" />
     <Content Include="App\views\404.cshtml" />
+    <Content Include="App\views\company.supplier.edit.cshtml" />
+    <Content Include="App\views\image-upload.cshtml" />
     <None Include="App\views\register.cshtml" />
     <Content Include="App\controllers\loginCtrl.js" />
     <Content Include="App\controllers\navBarCtrl.js" />

@@ -8,7 +8,8 @@
     function SideBarCtrl($scope, $location) {
         $scope.items = [
             { name: 'DASHBOARD', url: '.dashboard' },
-            { name: 'SURVEYS', url: '.surveys' }
+            { name: 'SURVEYS', url: '.surveys' },
+            { name: 'REGISTER SUPPLIER', url: '.editsupplier' }
         ];
 
         $scope.itemIsActive = function (url) {

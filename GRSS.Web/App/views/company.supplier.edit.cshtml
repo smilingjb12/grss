@@ -1,0 +1,72 @@
+﻿<div style="max-width: 1280px">
+    <form class="form-horizontal" novalidate
+          name="supplierForm">
+        <fieldset>
+            <legend>Supplier Company Registration</legend>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <image-upload image-source="imageSource"/>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group col-md-6"
+                     ng-class="{'has-error': supplierForm.inputCompanyName.$invalid &&
+                                             supplierForm.inputCompanyName.$dirty}">
+                    <div class="col-md-12">
+                        <div class="col-md-5">
+                            <label class="control-label" for="inputCompanyName">Company Name</label>
+                        </div>
+                        <div class="col-md-7"
+                             ng-show="supplierForm.inputCompanyName.$invalid &&
+                                  supplierForm.inputCompanyName.$dirty">
+                            <span class="help-block has-error">
+                                <span class="pull-right" ng-show="supplierForm.inputCompanyName.$error.required">
+                                    Company Name is required
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <input class="form-control" id="inputCompanyName"
+                               name="inputCompanyName" type="text"
+                               placeholder="Company Name (required)"
+                               required
+                               ng-model="supplierCompany.companyName" />
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6"
+                     ng-class="{'has-error': supplierForm.inputCompanyLegalStatus.$invalid &&
+                                             supplierForm.inputCompanyLegalStatus.$dirty}">
+                    <div class="col-md-12">
+                        <div class="col-md-5">
+                            <label class="control-label" for="inputCompanyLegalStatus">Company Legal Status</label>
+                        </div>
+                        <div class="col-md-7"
+                             ng-show="supplierForm.inputCompanyLegalStatus.$invalid ||
+                                  supplierForm.inputCompanyLegalStatus.$dirty">
+                            <span class="help-block has-error">
+                                <span class="pull-right" ng-show="supplierForm.inputCompanyLegalStatus.$error.required">
+                                    Company Legal Status is required
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <select class="form-control" id="inputCompanyLegalStatus"
+                                name="inputCompanyLegalStatus"
+                                ng-model="supplierCompany.companyLegalStatus">
+                            <option ng-repeat="status in companyLegalStatuses" value="{{status}}">{{status}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-12">
+                
+            </div>
+        </fieldset>
+    </form>
+</div>

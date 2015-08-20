@@ -1,0 +1,4 @@
+﻿<img class="upload-image-preview" ng-src="{{imagePreviewSource()}}" 
+     ng-click="selectFile()" />
+<input class="image-file-input" type="file" accept="image/*"
+       onchange="angular.element(this).scope().fileChanged(this)" />

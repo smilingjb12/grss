@@ -18,3 +18,15 @@ body {
 a {
     cursor: pointer;
 }
+
+.image-file-input {
+    display: none !important; 
+}
+
+.upload-image-preview {
+    max-height: 100%;
+    max-width: 100%;
+    cursor: pointer;
+    width: auto;
+}
+

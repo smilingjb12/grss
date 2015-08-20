@@ -42,6 +42,14 @@
                     authenticate: true
                 }
             })
+            .state(appStates.COMPANY_SUPPLIER_EDIT, {
+                url: '/editsupplier',
+                templateUrl: viewsFolder + 'company.supplier.edit.cshtml',
+                controller: 'SupplierEditCtrl',
+                data: {
+                    authenticate: true
+                }
+            })
             .state(appStates.NOT_FOUND, {
                 templateUrl: viewsFolder + '404.cshtml'
             });
