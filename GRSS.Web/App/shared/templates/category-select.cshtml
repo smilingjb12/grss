@@ -1,0 +1,29 @@
+﻿<div class="col-md-12">
+    <div class="form-group col-md-4 select-container">
+        <select class="form-control"
+                required
+                ng-model="selectedVerticalMarket">
+            <option ng-repeat="verticalMarket in verticalMarkets" value="{{verticalMarket}}">{{verticalMarket.Name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-4 select-container">
+        <select class="form-control"
+                required
+                ng-model="selectedBusinessUnit">
+            <option ng-repeat="businessUnit in businessUnits" value="{{businessUnit}}">{{businessUnit.Name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-3">
+        <select class="form-control"
+                required
+                ng-model="selectedCategory">
+            <option ng-repeat="category in categories" value="{{category}}">{{category.Name}}</option>
+        </select>
+    </div>
+
+    <div class="col-md-1">
+        <a ng-click="remove()" href="#">Remove</a>
+    </div>
+</div>
