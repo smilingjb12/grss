@@ -2,28 +2,31 @@
     <div class="form-group col-md-4 select-container">
         <select class="form-control"
                 required
-                ng-model="selectedVerticalMarket">
-            <option ng-repeat="verticalMarket in verticalMarkets" value="{{verticalMarket}}">{{verticalMarket.Name}}</option>
+                ng-options="verticalMarket as verticalMarket.name for verticalMarket in verticalMarkets"
+                ng-model="selectedCategory.selectedVerticalMarket">
+            <option value=""></option>
         </select>
     </div>
 
     <div class="form-group col-md-4 select-container">
         <select class="form-control"
                 required
-                ng-model="selectedBusinessUnit">
-            <option ng-repeat="businessUnit in businessUnits" value="{{businessUnit}}">{{businessUnit.Name}}</option>
+                ng-options="businessUnit as businessUnit.name for businessUnit in businessUnits"
+                ng-model="selectedCategory.selectedBusinessUnit">
+            <option value=""></option>
         </select>
     </div>
 
     <div class="form-group col-md-3">
         <select class="form-control"
                 required
-                ng-model="selectedCategory">
-            <option ng-repeat="category in categories" value="{{category}}">{{category.Name}}</option>
+                ng-options="category as category.name for category in categories"
+                ng-model="selectedCategory.selectedCategory">
+            <option value=""></option>
         </select>
     </div>
 
     <div class="col-md-1">
-        <a ng-click="remove()" href="#">Remove</a>
+        <a ng-click="remove()">Remove</a>
     </div>
 </div>

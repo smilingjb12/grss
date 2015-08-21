@@ -241,6 +241,7 @@
     <None Include="App\index.cshtml" />
     <Content Include="App\components\home\homeCtrl.js" />
     <Content Include="App\constants.js" />
+    <Content Include="App\shared\directives\categorySelect.js" />
     <Content Include="App\shared\layout\companyCtrl.js" />
     <Content Include="App\components\dashboard\dashboardCtrl.js" />
     <Content Include="App\shared\sidebar\sideBarCtrl.js" />
@@ -322,6 +323,7 @@
     </Content>
     <Content Include="App\shared\layout\navbar.cshtml" />
     <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="App\shared\templates\category-select.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

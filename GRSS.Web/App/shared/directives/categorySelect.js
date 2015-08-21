@@ -9,12 +9,12 @@
             restrict: 'E',
             scope: {
                 selectedCategory: '=',
-                'remove': '&onRemove'
+                remove: '&onRemove'
             },
             controller: function ($scope) {
-                $scope.verticalMarkets = [{ Id: 1, Name: "vm1" }, { Id: 2, Name: "vm2" }, { Id: 3, Name: "vm3" }];
-                $scope.businessUnits = [{ Id: 1, Name: "bu1" }, { Id: 2, Name: "bu2" }, { Id: 3, Name: "bu3" }];
-                $scope.categories = [{ Id: 1, Name: "c1" }, { Id: 2, Name: "c2" }, { Id: 3, Name: "c3" }];
+                $scope.verticalMarkets = [{ id: 1, name: "vm1" }, { id: 2, name: "vm2" }, { id: 3, name: "vm3" }];
+                $scope.businessUnits = [{ id: 1, name: "bu1" }, { id: 2, name: "bu2" }, { id: 3, name: "bu3" }];
+                $scope.categories = [{ id: 1, name: "c1" }, { id: 2, name: "c2" }, { id: 3, name: "c3" }];
             },
             templateUrl: appSettings.templatesFolderPath + 'category-select.cshtml'
         };

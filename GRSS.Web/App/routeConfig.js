@@ -27,10 +27,9 @@
                 controllerAs: 'vm'
             })
             .state(appStates.COMPANY, {
+                abstract: true,
                 url: '/company',
                 templateUrl: sharedFolder + 'layout/company.cshtml',
-                controller: 'CompanyCtrl',
-                controllerAs: 'vm'
             })
             .state(appStates.COMPANY_DASHBOARD, {
                 url: '/dashboard',

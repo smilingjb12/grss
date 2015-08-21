@@ -72,8 +72,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row" ng-repeat="category in vm.supplierCompany.categories track by $index">
-                <category-select selected-category="vm.supplierCompany.categories[$index]" on-remove="vm.removeCategory($index)" />
+            <div class="row" ng-repeat="category in vm.supplierCompany.categories">
+                <category-select selected-category="category" on-remove="vm.removeCategory($index)" />
             </div>
 
             <div class="row">
