@@ -3,9 +3,10 @@
 
     angular
         .module('app')
-        .controller('CompanyCtrl', ['$scope', '$state', 'appStates', CompanyCtrl]);
+        .controller('CompanyCtrl', ['$state', 'appStates', CompanyCtrl]);
 
-    function CompanyCtrl($scope, $state, appStates) {
+    function CompanyCtrl($state, appStates) {
+        var vm = this;
         $state.go(appStates.COMPANY_DASHBOARD);
     }
 })();

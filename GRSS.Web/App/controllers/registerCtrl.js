@@ -3,17 +3,18 @@
 
     angular
         .module('app')
-        .controller('RegisterCtrl', ['$scope', 'User', '$state', 'appStates', RegisterCtrl]);
+        .controller('RegisterCtrl', ['user', '$state', 'appStates', RegisterCtrl]);
 
-    function RegisterCtrl($scope, User, $state, appStates) {
-        $scope.newUser = {};
+    function RegisterCtrl(user, $state, appStates) {
+        var vm = this;
+        vm.newUser = {};
 
-        if (User.isAuthenticated()) {
+        if (user.isAuthenticated()) {
             $state.go(appStates.COMPANY_DASHBOARD);
         }
 
-        $scope.register = function () {
-            User.register($scope.newUser).then(function (data) {
+        vm.register = function () {
+            user.register(vm.newUser).then(function (data) {
                 alert('successfully registered!');
                 $state.go(appStates.LOGIN);
             }, function (error) {

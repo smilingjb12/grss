@@ -3,13 +3,14 @@
 
     angular
         .module('app')
-        .controller('NavBarCtrl', ['$scope', 'User', '$state', 'appStates', NavBarCtrl]);
+        .controller('NavBarCtrl', ['user', '$state', 'appStates', NavBarCtrl]);
 
-    function NavBarCtrl($scope, User, $state, appStates) {
-        $scope.user = User.getUserInfo();
+    function NavBarCtrl(user, $state, appStates) {
+        var vm = this;
+        vm.user = user.getUserInfo();
 
-        $scope.logout = function () {
-            $scope.user = User.logout();
+        vm.logout = function () {
+            vm.user = user.logout();
             $state.go(appStates.HOME);
         };
     }

@@ -3,17 +3,18 @@
 
     angular
         .module('app')
-        .controller('LoginCtrl', ['$scope', 'appStates', '$state', 'User', LoginCtrl]);
+        .controller('LoginCtrl', ['appStates', '$state', 'user', LoginCtrl]);
 
-    function LoginCtrl($scope, appStates, $state, User) {
-        $scope.loginData = {};
+    function LoginCtrl(appStates, $state, user) {
+        var vm = this;
+        vm.loginData = {};
 
-        if (User.isAuthenticated()) {
+        if (user.isAuthenticated()) {
             $state.go(appStates.COMPANY_DASHBOARD);
         }
 
-        $scope.login = function () {
-            User.login($scope.loginData).then(function(data) {
+        vm.login = function () {
+            user.login($scope.loginData).then(function(data) {
                 $state.go(appStates.COMPANY_DASHBOARD);
             }, function(error) {
                 var message = generateErrorMessage(error);

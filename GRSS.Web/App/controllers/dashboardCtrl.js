@@ -3,11 +3,12 @@
 
     angular
         .module('app')
-        .controller('DashboardCtrl', ['$scope', 'User', DashboardCtrl]);
+        .controller('DashboardCtrl', ['user', DashboardCtrl]);
 
-    function DashboardCtrl($scope, User) {
-        $scope.username = User.getUserInfo().username;
-        $scope.items = [
+    function DashboardCtrl(user) {
+        var vm = this;
+        vm.username = user.getUserInfo().username;
+        vm.items = [
             { name: 'Main Survey Tesco 2015', date: '20 Nov 2015', status: 'New' },
             { name: 'Main Survey Tesco 2015', date: '20 Nov 2015', status: 'New' },
             { name: 'Main Survey Tesco 2015', date: '20 Nov 2015', status: 'New' },

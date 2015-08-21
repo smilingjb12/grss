@@ -3,16 +3,17 @@
 
     angular
         .module('app')
-        .controller('SideBarCtrl', ['$scope', '$location', SideBarCtrl]);
+        .controller('SideBarCtrl', ['$location', SideBarCtrl]);
 
-    function SideBarCtrl($scope, $location) {
-        $scope.items = [
+    function SideBarCtrl($location) {
+        var vm = this;
+        vm.items = [
             { name: 'DASHBOARD', url: '.dashboard' },
             { name: 'SURVEYS', url: '.surveys' },
             { name: 'REGISTER SUPPLIER', url: '.editsupplier' }
         ];
 
-        $scope.itemIsActive = function (url) {
+        vm.itemIsActive = function (url) {
             var location = $location.url();
             var urlSegment = location.substr(location.lastIndexOf('/') + 1);
             if (url.substr(1) == urlSegment) return 'active';

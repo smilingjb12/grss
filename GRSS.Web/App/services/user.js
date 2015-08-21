@@ -3,12 +3,10 @@
 
     angular
         .module('app')
-        .service('User', ['userAccount', 'appStates', '$q', '$cookies', '$http', User]);
+        .factory('user', ['userAccount', 'appStates', '$q', '$cookies', '$http', user]);
 
-    function User(userAccount, appStates, $q, $cookies, $http) {
+    function user(userAccount, appStates, $q, $cookies, $http) {
         var AUTH_STORAGE_KEY = 'user.auth_data';
-        var self = this;
-
         var user = {
             isAuthenticated: false,
             username: '',
@@ -16,7 +14,15 @@
             tokenExpirationDate: null
         };
 
-        var authenticationExpired = function(expirationDate) {
+        return {
+            getUserInfo: getUserInfo,
+            login: login,
+            logout: logout,
+            register: register,
+            isAuthenticated: isAuthenticated
+        };
+
+        function authenticationExpired(expirationDate) {
             var now = new Date();
             expirationDate = new Date(expirationDate);
             if (expirationDate - now > 0) {
@@ -25,25 +31,25 @@
             return true;
         };
 
-        var removeAuthData = function() {
+        function removeAuthData() {
             $cookies.remove(AUTH_STORAGE_KEY);
         };
 
-        var setHttpAuthHeader = function() {
+        function setHttpAuthHeader() {
             $http.defaults.headers.common.Authorization = 'Bearer ' + user.bearerToken;
         };
 
-        var saveAuthData = function () {
+        function saveAuthData() {
             removeAuthData();
             var json = angular.toJson(user);
             $cookies.put(AUTH_STORAGE_KEY, json);
         };
 
-        this.isAuthenticated = function () {
-            return self.getUserInfo().isAuthenticated;
+        function isAuthenticated() {
+            return getUserInfo().isAuthenticated;
         };
 
-        this.getUserInfo = function() {
+        function getUserInfo() {
             var savedAuthData = $cookies.get(AUTH_STORAGE_KEY);
             if (savedAuthData) {
                 var parsedData = angular.fromJson(savedAuthData);
@@ -56,7 +62,7 @@
             return user;
         }
 
-        this.login = function (loginData) {
+        function login(loginData) {
             user.username = loginData.userName;
             loginData.grant_type = 'password';
             var loginAction = $q.defer();
@@ -74,7 +80,7 @@
             return loginAction.promise;
         }
 
-        this.logout = function() {
+        function logout() {
             user.isAuthenticated = false;
             user.username = '';
             user.bearerToken = '';
@@ -82,7 +88,7 @@
             return user;
         }
 
-        this.register = function (registerData) {
+        function register(registerData) {
             var registerAction = $q.defer();
             userAccount.registration.registerUser(registerData, function (data) {
                 registerAction.resolve(data);

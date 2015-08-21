@@ -2,9 +2,10 @@
     "use strict";
 
     angular.module('app')
-        .controller('SupplierEditCtrl', ['$scope', SupplierEditCtrl]);
+        .controller('SupplierEditCtrl', [SupplierEditCtrl]);
 
-    function SupplierEditCtrl($scope) {
-        $scope.companyLegalStatuses = [ 'Ltd', 'Inc', "SSH" ];
+    function SupplierEditCtrl() {
+        var vm = this;
+        vm.companyLegalStatuses = [ 'Ltd', 'Inc', "SSH" ];
     }
 })();

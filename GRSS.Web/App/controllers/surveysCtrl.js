@@ -3,9 +3,10 @@
 
     angular
         .module('app')
-        .controller('SurveysCtrl', ['$scope', 'User', SurveysCtrl]);
+        .controller('SurveysCtrl', ['user', SurveysCtrl]);
 
-    function SurveysCtrl($scope, User) {
-        $scope.username = User.getUserInfo().username;
+    function SurveysCtrl(user) {
+        var vm = this;
+        vm.username = user.getUserInfo().username;
     }
 })();
