@@ -3,9 +3,9 @@
 
     angular
         .module('app')
-        .controller('RegisterCtrl', ['user', '$state', 'appStates', RegisterCtrl]);
+        .controller('RegisterCtrl', ['user', '$state', 'appStates', 'toastr', RegisterCtrl]);
 
-    function RegisterCtrl(user, $state, appStates) {
+    function RegisterCtrl(user, $state, appStates, toastr) {
         var vm = this;
         vm.newUser = {};
 
@@ -15,11 +15,11 @@
 
         vm.register = function () {
             user.register(vm.newUser).then(function (data) {
-                alert('successfully registered!');
+                toastr.success('Successfully registered');
                 $state.go(appStates.LOGIN);
             }, function (error) {
                 var message = generateErrorMessage(error);
-                alert('could not register: ' + message);
+                toastr.error('Could not register: ' + message);
             });
         };
 

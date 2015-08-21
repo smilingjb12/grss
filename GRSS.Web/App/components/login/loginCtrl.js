@@ -3,9 +3,9 @@
 
     angular
         .module('app')
-        .controller('LoginCtrl', ['appStates', '$state', 'user', LoginCtrl]);
+        .controller('LoginCtrl', ['appStates', '$state', 'user', 'toastr', LoginCtrl]);
 
-    function LoginCtrl(appStates, $state, user) {
+    function LoginCtrl(appStates, $state, user, toastr) {
         var vm = this;
         vm.loginData = {};
 
@@ -18,7 +18,7 @@
                 $state.go(appStates.COMPANY_DASHBOARD);
             }, function(error) {
                 var message = generateErrorMessage(error);
-                alert('could not log in: ' + message);
+                toastr.error('Could not login: ' + message);
             });
         }
 

@@ -19,19 +19,19 @@
 
         function loginResource() {
             return $resource(appSettings.serverPath + 'Token', null, {
-            loginUser: {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                transformRequest: function(data, headersGetter) {
-                    var str = [];
-                    for (var d in data) {
-                        var key = encodeURIComponent(d);
-                        var value = encodeURIComponent(data[d]);
-                        str.push(key + '=' + value);
+                loginUser: {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    transformRequest: function(data, headersGetter) {
+                        var str = [];
+                        for (var d in data) {
+                            var key = encodeURIComponent(d);
+                            var value = encodeURIComponent(data[d]);
+                            str.push(key + '=' + value);
+                        }
+                        return str.join('&');
                     }
-                    return str.join('&');
                 }
-            }
             });
         }
     }

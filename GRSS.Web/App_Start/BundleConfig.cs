@@ -21,7 +21,8 @@ namespace GRSS.Web
                 .Include("~/Content/ui-bootstrap-csp.css"));
 
             bundles.Add(new StyleBundle("~/bundles/app/vendor/css")
-                .Include("~/Content/angular-loading-bar.css"));
+                .Include("~/Content/angular-loading-bar.css")
+                .Include("~/Content/angular-toastr.css"));
 
             bundles.Add(new StyleBundle("~/bundles/app/user/css").Include(
                 "~/Content/site.css",
@@ -40,7 +41,8 @@ namespace GRSS.Web
                 "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
                 "~/Scripts/angular-cookies.js",
                 "~/Scripts/angular-loading-bar.js",
-                "~/Scripts/angular-animate.js"));
+                "~/Scripts/angular-animate.js",
+                "~/Scripts/angular-toastr.tpls.js"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/app/user/js")
