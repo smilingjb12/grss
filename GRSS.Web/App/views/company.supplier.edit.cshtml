@@ -3,27 +3,30 @@
           name="supplierForm">
         <fieldset>
             <legend>Supplier Company Registration</legend>
-            
+
             <div class="row">
                 <div class="col-md-6">
-                    <image-upload image-source="imageSource"/>
+                    <image-upload image-source="imageSource" />
                 </div>
             </div>
 
-            <div class="col-md-12">
+            <div class="row">
                 <div class="form-group col-md-6"
                      ng-class="{'has-error': supplierForm.inputCompanyName.$invalid &&
                                              supplierForm.inputCompanyName.$dirty}">
                     <div class="col-md-12">
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <label class="control-label" for="inputCompanyName">Company Name</label>
                         </div>
-                        <div class="col-md-7"
+                        <div class="col-md-8"
                              ng-show="supplierForm.inputCompanyName.$invalid &&
                                   supplierForm.inputCompanyName.$dirty">
                             <span class="help-block has-error">
                                 <span class="pull-right" ng-show="supplierForm.inputCompanyName.$error.required">
                                     Company Name is required
+                                </span>
+                                <span class="pull-right" ng-show="supplierForm.inputCompanyName.$error.minlength">
+                                    Company Name must be at least 3 characters in length
                                 </span>
                             </span>
                         </div>
@@ -33,6 +36,7 @@
                                name="inputCompanyName" type="text"
                                placeholder="Company Name (required)"
                                required
+                               ng-minlength="3"
                                ng-model="supplierCompany.companyName" />
                     </div>
                 </div>
@@ -41,11 +45,11 @@
                      ng-class="{'has-error': supplierForm.inputCompanyLegalStatus.$invalid &&
                                              supplierForm.inputCompanyLegalStatus.$dirty}">
                     <div class="col-md-12">
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <label class="control-label" for="inputCompanyLegalStatus">Company Legal Status</label>
                         </div>
-                        <div class="col-md-7"
-                             ng-show="supplierForm.inputCompanyLegalStatus.$invalid ||
+                        <div class="col-md-8"
+                             ng-show="supplierForm.inputCompanyLegalStatus.$invalid &&
                                   supplierForm.inputCompanyLegalStatus.$dirty">
                             <span class="help-block has-error">
                                 <span class="pull-right" ng-show="supplierForm.inputCompanyLegalStatus.$error.required">
@@ -57,15 +61,177 @@
                     <div class="col-md-12">
                         <select class="form-control" id="inputCompanyLegalStatus"
                                 name="inputCompanyLegalStatus"
+                                required
                                 ng-model="supplierCompany.companyLegalStatus">
                             <option ng-repeat="status in companyLegalStatuses" value="{{status}}">{{status}}</option>
                         </select>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <label class="control-label">Vertical Market -> Business Unit -> Category</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" ng-repeat="category in supplierCompany.categories track by $index">
+                <category-select selected-category="supplierCompany.categories[$index]" on-remove="removeCategory($index)"/>
+            </div>
             
-            <div class="col-md-12">
-                
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <a ng-click="addCategory()">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6"
+                     ng-class="{'has-error': supplierForm.inputNumberOfEmployees.$invalid &&
+                                             supplierForm.inputNumberOfEmployees.$dirty}">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <label class="control-label" for="inputNumberOfEmployees">Number Of Employees</label>
+                        </div>
+                        <div class="col-md-8"
+                             ng-show="supplierForm.inputNumberOfEmployees.$invalid &&
+                                  supplierForm.inputNumberOfEmployees.$dirty">
+                            <span class="help-block has-error">
+                                <span class="pull-right" ng-show="supplierForm.inputNumberOfEmployees.$error.required">
+                                    Number Of Employees is required
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <select class="form-control" id="inputNumberOfEmployees"
+                                name="inputNumberOfEmployees"
+                                required
+                                ng-model="supplierCompany.numberOfEmployees">
+                            <option ng-repeat="numberOfEmployees in numberOfEmployeesSet" value="{{numberOfEmployees}}">{{numberOfEmployees}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6"
+                     ng-class="{'has-error': supplierForm.inputWebSite.$invalid &&
+                                             supplierForm.inputWebSite.$dirty}">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <label class="control-label" for="inputWebSite">Web Site</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <input class="form-control" id="inputWebSite"
+                               name="inputWebSite" type="text"
+                               placeholder="Web Site"
+                               ng-model="supplierCompany.webSite" />
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6"
+                     ng-class="{'has-error': supplierForm.inputCompanyPhone.$invalid &&
+                                             supplierForm.inputCompanyPhone.$dirty}">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <label class="control-label" for="inputCompanyPhone">Company Phone</label>
+                        </div>
+                        <div class="col-md-8"
+                             ng-show="supplierForm.inputCompanyPhone.$invalid &&
+                                  supplierForm.inputCompanyPhone.$dirty">
+                            <span class="help-block has-error">
+                                <span class="pull-right" ng-show="supplierForm.inputCompanyPhone.$error.required">
+                                    Company Phone is required
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <input class="form-control" id="inputCompanyPhone"
+                               name="inputCompanyPhone" type="text"
+                               placeholder="Company Phone (required)"
+                               required
+                               ng-model="supplierCompany.companyPhone" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6"
+                     ng-class="{'has-error': supplierForm.inputCity.$invalid &&
+                                             supplierForm.inputCity.$dirty}">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <label class="control-label" for="inputCity">Town/City</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <input class="form-control" id="inputCity"
+                               name="inputCity" type="text"
+                               placeholder="Town/City"
+                               ng-model="supplierCompany.city" />
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6"
+                     ng-class="{'has-error': supplierForm.inputRegion.$invalid &&
+                                             supplierForm.inputRegion.$dirty}">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <label class="control-label" for="inputRegion">Country Region</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <input class="form-control" id="inputRegion"
+                               name="inputRegion" type="text"
+                               placeholder="Country Region"
+                               ng-model="supplierCompany.region" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6"
+                     ng-class="{'has-error': supplierForm.inputZipCode.$invalid &&
+                                             supplierForm.inputZipCode.$dirty}">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <label class="control-label" for="inputZipCode">Post/Zip Code</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <input class="form-control" id="inputZipCode"
+                               name="inputZipCode" type="text"
+                               placeholder="Post/Zip Code"
+                               ng-model="supplierCompany.zipCode" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <button class="btn btn-primary btn-save"
+                                ng-click="submit()"
+                                ng-disabled="supplierForm.$invalid">
+                            Save
+                        </button>
+                        <button class="btn btn-default btn-cancel"
+                                ng-click="cancel(supplierForm)">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
             </div>
         </fieldset>
     </form>

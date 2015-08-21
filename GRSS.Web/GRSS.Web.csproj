@@ -240,6 +240,7 @@
     <Content Include="App\app.js" />
     <None Include="App\index.cshtml" />
     <Content Include="App\constants.js" />
+    <Content Include="App\directives\categorySelect.js" />
     <Content Include="App\controllers\companyCtrl.js" />
     <Content Include="App\controllers\dashboardCtrl.js" />
     <Content Include="App\controllers\sideBarCtrl.js" />
@@ -253,6 +254,7 @@
     <Content Include="App\views\404.cshtml" />
     <Content Include="App\views\company.supplier.edit.cshtml" />
     <Content Include="App\views\image-upload.cshtml" />
+    <Content Include="App\views\category-select.cshtml" />
     <None Include="App\views\register.cshtml" />
     <Content Include="App\controllers\loginCtrl.js" />
     <Content Include="App\controllers\navBarCtrl.js" />
@@ -361,7 +363,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\directives\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -390,7 +391,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>44104</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:44104/</IISUrl>
+          <IISUrl>http://localhost:44444/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
