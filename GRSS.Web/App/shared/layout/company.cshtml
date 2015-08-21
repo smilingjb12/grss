@@ -1,0 +1,18 @@
+﻿<div class="wrapper">
+    <div class="sidebar-wrapper">
+        <ul class="nav-sidebar sidebar-nav nav" ng-controller="SideBarCtrl as vm">
+            <li ng-repeat="item in vm.items" ng-class="{active: vm.itemIsActive(item.url)}">
+                <a ui-sref="{{ item.url }}">
+                    <span class="glyphicon glyphicon-th-list"></span>&nbsp;{{ item.name }}
+                </a>
+            </li>
+        </ul>
+    </div> 
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="container-fluid">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>

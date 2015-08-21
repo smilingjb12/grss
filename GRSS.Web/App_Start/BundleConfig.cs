@@ -47,9 +47,8 @@ namespace GRSS.Web
                 .Include("~/App/app.js")
                 .Include("~/App/constants.js")
                 .Include("~/App/routeConfig.js")
-                .IncludeDirectory("~/App/directives", "*.js", searchSubdirectories: true)
-                .IncludeDirectory("~/App/services", "*.js", searchSubdirectories: true)
-                .IncludeDirectory("~/App/controllers", "*.js", searchSubdirectories: true));
+                .IncludeDirectory("~/App/components", "*.js", searchSubdirectories: true)
+                .IncludeDirectory("~/App/shared", "*.js", searchSubdirectories: true));
         }
     }
 }

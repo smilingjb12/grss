@@ -5,33 +5,36 @@
 
     app.config(['$stateProvider', '$urlRouterProvider', 'appStates', 'appSettings', AppRouter]);
     function AppRouter($stateProvider, $urlRouterProvider, appStates, appSettings) {
-        var viewsFolder = appSettings.viewsFolderPath;
+        var viewsFolder = appSettings.componentsFolderPath;
+        var sharedFolder = appSettings.sharedFolderPath;
         $stateProvider
             .state(appStates.HOME, {
                 url: '/',
-                templateUrl: viewsFolder + 'home.cshtml'
+                templateUrl: viewsFolder + 'home/home.cshtml',
+                controller: 'HomeCtrl',
+                controllerAs: 'vm'
             })
             .state(appStates.LOGIN, {
                 url: '/login',
-                templateUrl: viewsFolder + 'login.cshtml',
+                templateUrl: viewsFolder + 'login/login.cshtml',
                 controller: 'LoginCtrl',
                 controllerAs: 'vm'
             })
             .state(appStates.REGISTER, {
                 url: '/register',
-                templateUrl: viewsFolder + 'register.cshtml',
+                templateUrl: viewsFolder + 'register/register.cshtml',
                 controller: 'RegisterCtrl',
                 controllerAs: 'vm'
             })
             .state(appStates.COMPANY, {
                 url: '/company',
-                templateUrl: viewsFolder + 'company.cshtml',
+                templateUrl: sharedFolder + 'layout/company.cshtml',
                 controller: 'CompanyCtrl',
                 controllerAs: 'vm'
             })
             .state(appStates.COMPANY_DASHBOARD, {
                 url: '/dashboard',
-                templateUrl: viewsFolder + 'company.dashboard.cshtml',
+                templateUrl: viewsFolder + 'dashboard/company.dashboard.cshtml',
                 controller: 'DashboardCtrl',
                 controllerAs: 'vm',
                 data: {
@@ -40,7 +43,7 @@
             })
             .state(appStates.COMPANY_SURVEYS, {
                 url: '/surveys',
-                templateUrl: viewsFolder + 'company.surveys.cshtml',
+                templateUrl: viewsFolder + 'surveys/company.surveys.cshtml',
                 controller: 'SurveysCtrl',
                 controllerAs: 'vm',
                 data: {
@@ -49,7 +52,7 @@
             })
             .state(appStates.COMPANY_SUPPLIER_EDIT, {
                 url: '/editsupplier',
-                templateUrl: viewsFolder + 'company.supplier.edit.cshtml',
+                templateUrl: viewsFolder + 'supplier/company.supplier.edit.cshtml',
                 controller: 'SupplierEditCtrl',
                 controllerAs: 'vm',
                 data: {
@@ -57,7 +60,7 @@
                 }
             })
             .state(appStates.NOT_FOUND, {
-                templateUrl: viewsFolder + '404.cshtml'
+                templateUrl: sharedFolder + '/special/404.cshtml'
             });
 
         // start route

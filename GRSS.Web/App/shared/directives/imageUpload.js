@@ -29,7 +29,7 @@
                     return $scope.imageSource || appSettings.defaultCompanyImageUrl;
                 };
             },
-            templateUrl: appSettings.viewsFolderPath + 'image-upload.cshtml'
+            templateUrl: appSettings.templatesFolderPath + 'image-upload.cshtml'
         };
     }
 })();
