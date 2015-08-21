@@ -7,15 +7,18 @@
 
     function userAccount($resource, appSettings) {
         return {
-            registration: registrationResource,
-            login: loginResource
+            registration: registrationResource(),
+            login: loginResource()
         };
 
-        var registrationResource =  $resource(appSettings.serverPath + appSettings.registerPath, null, {
+        function registrationResource() {
+            return $resource(appSettings.serverPath + appSettings.registerPath, null, {
                 registerUser: { method: 'POST' }
-        });
+            });
+        }
 
-        var loginResource = $resource(appSettings.serverPath + 'Token', null, {
+        function loginResource() {
+            return $resource(appSettings.serverPath + 'Token', null, {
             loginUser: {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -29,6 +32,7 @@
                     return str.join('&');
                 }
             }
-        });
+            });
+        }
     }
 })();
