@@ -7,8 +7,9 @@
     function CategorySelect(appSettings) {
         return {
             restrict: 'E',
+            require: '^ngModel',
             scope: {
-                selectedCategory: '=',
+                ngModel: '=',
                 remove: '&onRemove'
             },
             controller: function ($scope) {

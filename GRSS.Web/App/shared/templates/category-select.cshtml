@@ -3,7 +3,7 @@
         <select class="form-control"
                 required
                 ng-options="verticalMarket as verticalMarket.name for verticalMarket in verticalMarkets"
-                ng-model="selectedCategory.selectedVerticalMarket">
+                ng-model="ngModel.selectedVerticalMarket">
             <option value=""></option>
         </select>
     </div>
@@ -12,7 +12,7 @@
         <select class="form-control"
                 required
                 ng-options="businessUnit as businessUnit.name for businessUnit in businessUnits"
-                ng-model="selectedCategory.selectedBusinessUnit">
+                ng-model="ngModel.selectedBusinessUnit">
             <option value=""></option>
         </select>
     </div>
@@ -21,7 +21,7 @@
         <select class="form-control"
                 required
                 ng-options="category as category.name for category in categories"
-                ng-model="selectedCategory.selectedCategory">
+                ng-model="ngModel.selectedCategory">
             <option value=""></option>
         </select>
     </div>
