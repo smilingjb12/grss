@@ -18,17 +18,8 @@ namespace GRSS.Web.Controllers
 
         private AppConstants GenerateAppConstants()
         {
-            var constants = new AppConstants
-            {
-                ServerPath = GenerateServerPath()
-            };
+            var constants = new AppConstants();
             return constants;
-        }
-
-        private string GenerateServerPath()
-        {
-            string serverPath = $"{Request.Url.Scheme}://{Request.Url.Authority}/";
-            return serverPath;
         }
     }
 }

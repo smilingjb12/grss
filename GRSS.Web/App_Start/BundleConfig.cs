@@ -42,15 +42,16 @@ namespace GRSS.Web
                 "~/Scripts/angular-cookies.js",
                 "~/Scripts/angular-loading-bar.js",
                 "~/Scripts/angular-animate.js",
-                "~/Scripts/angular-toastr.tpls.js"));
-
+                "~/Scripts/angular-toastr.tpls.js",
+                "~/Scripts/breeze.min.js",
+                "~/Scripts/breeze.bridge.angular.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app/user/js")
                 .Include("~/App/app.js")
                 .Include("~/App/constants.js")
-                .Include("~/App/routeConfig.js")
-                .IncludeDirectory("~/App/components", "*.js", searchSubdirectories: true)
-                .IncludeDirectory("~/App/shared", "*.js", searchSubdirectories: true));
+                .IncludeDirectory("~/App/config", "*.js", searchSubdirectories: true)
+                .IncludeDirectory("~/App/shared", "*.js", searchSubdirectories: true)
+                .IncludeDirectory("~/App/components", "*.js", searchSubdirectories: true));
         }
     }
 }

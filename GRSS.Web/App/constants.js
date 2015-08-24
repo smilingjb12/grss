@@ -12,11 +12,14 @@
         NOT_FOUND: '404'
     };
 
+    var serverRoot = window.location.protocol + '//' + window.location.host + '/';
+
     angular
         .module('app')
         .constant('appStates', STATES)
         .constant('appSettings', {
-            serverPath: window.serverConstants.ServerPath,
+            serverPath: serverRoot,
+            breezeEntitiesUrl: serverRoot + 'breeze/entities',
             registerPath: 'api/Account/Register',
             componentsFolderPath: '/App/components/',
             sharedFolderPath: 'App/shared/',
